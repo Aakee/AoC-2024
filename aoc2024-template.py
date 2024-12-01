@@ -44,10 +44,9 @@ def load_file(fn: str):
     @returns:       contents of the file as a list, one entry corresponding to one line
     '''
     with open(fn,'r') as file:
-        ret = ''
-        for line in file:   # Loop through the file and add the lines to the return value
-            ret += line
-    return ret.split('\n')
+        lines = [line.strip() for line in file if len(line.strip()) > 0]
+    logging.debug(f"No of input lines: {len(lines)}")
+    return lines
 
 # =========================
 
@@ -62,7 +61,6 @@ def part1(data: list) -> int:
     Solution for the part 1.
     '''
     ans = 0
-
     return ans
 
 
@@ -71,7 +69,6 @@ def part2(data: list) -> int:
     Solution for the part 2.
     '''
     ans = 0
-
     return ans
 
 # =========================
